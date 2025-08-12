@@ -4,19 +4,8 @@ import img1 from "../../public/wallhaven-jxoxjm.jpg"
 
 export default function Home() {
   return (
-    <div>
-      <h1>
-        Image Page
-      </h1>
-
-      {/* <img src={img1.src} /> */}
-
-      <Image 
-      src={img1}
-      alt="Sample Image"
-      style={{width: "100%", objectFit: "cover"}}
-      />
-
-    </div>
+    <h1>
+      Home Page
+    </h1>
   );
 }
