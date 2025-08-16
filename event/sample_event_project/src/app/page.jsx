@@ -3,6 +3,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { useState } from "react";
+import PeopleTable from "../app/(components)/(peopleTable)/page"
 
 export default function Home() {
   const [inputValue, setInputValue] = useState();
@@ -69,6 +70,8 @@ export default function Home() {
         Submit
       </button>
     </form>
+
+    <PeopleTable/>
 
       {/* <input type="text" placeholder="Enter Anything" onChange={handleChange}/>
       <button onClick={handleSave}>Save</button>
