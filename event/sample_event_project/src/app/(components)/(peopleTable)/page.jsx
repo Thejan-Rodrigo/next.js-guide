@@ -3,6 +3,7 @@ import { useState, React } from 'react';
 function page() {
 
     const [inputValue1, setInputValue1] = useState('');
+    const [hoveredRow, setHoveredRow] = useState(false);
     const peopleData = [
         { firstName: 'Alice', lastName: 'Johnson', age: 24, country: 'USA' },
         { firstName: 'Liam', lastName: 'Smith', age: 30, country: 'UK' },
@@ -111,22 +112,37 @@ function page() {
                         </tr>
                     </thead>
                     <tbody>
-                        {peopleData.map((person, index) => (
+                        {peopleData.map((person, rowIndex) => (
                             <tr
-                                key={index}
+                                key={rowIndex}
+                                onMouseEnter={() => setHoveredRow(rowIndex)}
+                                onMouseLeave={() => setHoveredRow(null)}
                                 style={{
-                                    backgroundColor: index % 2 === 0 ? '#ffffff' : '#f1f3f5',
+                                    backgroundColor:
+                                        hoveredRow === rowIndex
+                                            ? '#e0f2fe'
+                                            : rowIndex % 2 === 0
+                                                ? '#ffffff'
+                                                : '#f1f3f5',
                                     transition: 'background-color 0.2s',
+                                    cursor: 'default',
                                 }}
                             >
                                 <td style={{ padding: '12px', borderBottom: '1px solid #dee2e6' }}>
-                                    {person.firstName} {person.lastName}
+                                    <a href="https://www.youtube.com/watch?v=Hz1rdeJxltg&list=RD1RoNa3fjUFU&index=2">{person.firstName} {person.lastName}</a>
                                 </td>
-                                <td style={{ padding: '12px', borderBottom: '1px solid #dee2e6' }}>{person.age}</td>
-                                <td style={{ padding: '12px', borderBottom: '1px solid #dee2e6' }}>{person.country}</td>
+                                <td style={{ padding: '12px', borderBottom: '1px solid #dee2e6' }}>
+                                    {person.age}
+                                </td>
+                                <td style={{ padding: '12px', borderBottom: '1px solid #dee2e6' }}>
+                                    {person.country}
+                                </td>
                             </tr>
                         ))}
                     </tbody>
+
+
+
                 </table>
             </div>
         </div>
