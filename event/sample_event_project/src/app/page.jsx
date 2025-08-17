@@ -20,7 +20,7 @@ export default function Home() {
     setShowMore(!showMore);
   }
   return (
-    <div>
+    <div style={{backgroundColor: '#f8f9fa'}}>
       <h1>Home Page</h1>
       <button onClick={handleShowMore}>Show More</button>
 

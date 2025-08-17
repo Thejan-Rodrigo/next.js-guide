@@ -39,74 +39,98 @@ function page() {
     };
 
     return (
-        <div style={{ padding: '20px' }}>
-            <form onSubmit={handleSubmit} style={{ maxWidth: '400px', margin: '20px auto' }}>
+        <div>
+            <form
+                onSubmit={handleSubmit}
+                style={{
+                    maxWidth: '600px',
+                    margin: '0 auto 40px auto',
+                    display: 'flex',
+                    gap: '10px',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                }}
+            >
                 <input
                     type="text"
                     placeholder="Enter here..."
                     value={inputValue1}
                     onChange={(e) => setInputValue1(e.target.value)}
                     style={{
-                        padding: '10px',
-                        width: '70%',
-                        marginRight: '10px',
+                        flex: '1',
+                        padding: '12px 15px',
                         border: '1px solid #ccc',
-                        borderRadius: '4px'
+                        borderRadius: '6px',
+                        fontSize: '16px',
+                        outline: 'none',
+                        transition: 'border-color 0.3s',
                     }}
                 />
                 <button
                     type="submit"
                     style={{
-                        padding: '10px 20px',
+                        padding: '12px 24px',
                         backgroundColor: '#0070f3',
                         color: '#fff',
                         border: 'none',
-                        borderRadius: '4px',
-                        cursor: 'pointer'
+                        borderRadius: '6px',
+                        fontSize: '16px',
+                        cursor: 'pointer',
+                        transition: 'background-color 0.3s',
                     }}
+                    onMouseOver={(e) => (e.target.style.backgroundColor = '#005bd1')}
+                    onMouseOut={(e) => (e.target.style.backgroundColor = '#0070f3')}
                 >
                     Submit
                 </button>
             </form>
-            <h2>People Table</h2>
-            <table
-                border="1"
-                cellPadding="10"
-                cellSpacing="0"
-                style={{
-                    borderCollapse: 'collapse',
-                    width: '100%',
-                    fontFamily: 'Arial, sans-serif',
-                    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)'
-                }}
-            >
-                <thead>
-                    <tr style={{ backgroundColor: '#f2f2f2', textAlign: 'left' }}>
-                        <th style={{ padding: '12px', border: '1px solid #ddd' }}>Full Name</th>
-                        <th style={{ padding: '12px', border: '1px solid #ddd' }}>Age</th>
-                        <th style={{ padding: '12px', border: '1px solid #ddd' }}>Country</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {peopleData.map((person, index) => (
-                        <tr
-                            key={index}
-                            style={{
-                                backgroundColor: index % 2 === 0 ? '#ffffff' : '#f9f9f9',
-                                borderBottom: '1px solid #ddd'
-                            }}
-                        >
-                            <td style={{ padding: '12px', border: '1px solid #ddd' }}>
-                                {person.firstName} {person.lastName}
-                            </td>
-                            <td style={{ padding: '12px', border: '1px solid #ddd' }}>{person.age}</td>
-                            <td style={{ padding: '12px', border: '1px solid #ddd' }}>{person.country}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
 
+            <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+                <h2 style={{ textAlign: 'center', marginBottom: '20px', fontFamily: 'Arial, sans-serif' }}>
+                    People Table
+                </h2>
+                <table
+                    border="1"
+                    cellPadding="10"
+                    cellSpacing="0"
+                    style={{
+                        borderCollapse: 'collapse',
+                        width: '100%',
+                        fontFamily: 'Arial, sans-serif',
+                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+                        backgroundColor: '#fff',
+                        borderRadius: '8px',
+                        overflow: 'hidden',
+                    }}
+                >
+                    <thead>
+                        <tr style={{ backgroundColor: '#e9ecef', textAlign: 'left' }}>
+                            <th style={{ padding: '14px', borderBottom: '2px solid #dee2e6' }}>Full Name</th>
+                            <th style={{ padding: '14px', borderBottom: '2px solid #dee2e6' }}>Age</th>
+                            <th style={{ padding: '14px', borderBottom: '2px solid #dee2e6' }}>Country</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {peopleData.map((person, index) => (
+                            <tr
+                                key={index}
+                                style={{
+                                    backgroundColor: index % 2 === 0 ? '#ffffff' : '#f1f3f5',
+                                    transition: 'background-color 0.2s',
+                                }}
+                            >
+                                <td style={{ padding: '12px', borderBottom: '1px solid #dee2e6' }}>
+                                    {person.firstName} {person.lastName}
+                                </td>
+                                <td style={{ padding: '12px', borderBottom: '1px solid #dee2e6' }}>{person.age}</td>
+                                <td style={{ padding: '12px', borderBottom: '1px solid #dee2e6' }}>{person.country}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
+
     );
 }
 
