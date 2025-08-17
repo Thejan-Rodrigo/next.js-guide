@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { useState } from "react";
 import PeopleTable from "../app/(components)/(peopleTable)/page"
+import User from "../app/(components)/(UserPage)/page"
 
 export default function Home() {
   const [inputValue, setInputValue] = useState();
@@ -38,6 +39,12 @@ export default function Home() {
       <div style={{ maxWidth: '400px', margin: '20px auto' }}>
 
         <PeopleTable />
+
+      </div>
+
+      <div style={{ maxWidth: '400px', margin: '20px auto' }}>
+
+        <User user={{ id: 1013, firstName: 'Kehan', lastName: 'Perera', age: 22, country: 'Sri Lanka' }}/>
 
       </div>
 
