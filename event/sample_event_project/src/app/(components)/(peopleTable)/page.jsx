@@ -129,7 +129,7 @@ function page() {
                                 }}
                             >
                                 <td style={{ padding: '12px', borderBottom: '1px solid #dee2e6' }}>
-                                    <a href="https://www.youtube.com/watch?v=Hz1rdeJxltg&list=RD1RoNa3fjUFU&index=2">{person.firstName} {person.lastName}</a>
+                                    <a href={`http://localhost:3000/${person.id}/user`}>{person.firstName} {person.lastName}</a>
                                 </td>
                                 <td style={{ padding: '12px', borderBottom: '1px solid #dee2e6' }}>
                                     {person.age}
